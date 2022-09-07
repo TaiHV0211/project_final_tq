@@ -1,0 +1,85 @@
+html,
+body{
+    padding: 0px;
+    margin: 0px;
+}
+
+@font-face {
+    font-family: 'Kanit', sans-serif;
+    src: url(/asses/font/Kanit/Kanit-Black.ttf);
+}
+.main {
+    height: auto;
+}
+.left-menu{
+    background-color: rgb(12, 12, 12);
+    float: left;
+    max-width: 300px;
+    width: 250px;
+    height: 750px;
+}   
+a{
+    text-decoration: none;
+    color: #fff;
+    font-family: 'Kanit', sans-serif;
+
+}
+
+li{
+    padding: 10px;
+    margin-bottom: 5px;
+    list-style-type: none;
+}
+.title{
+    text-align: center;
+}
+.icon{
+    color: #fff;
+    font-size: 18px;
+}
+.title__content{
+    color: #fff;
+    font-size: 24px;
+    font-family: 'Kanit', sans-serif;
+
+}
+.main-content{
+    background-color: rgb(255, 255, 255);
+    min-width: calc(740px - 300px);
+    height: 750px;
+    
+}
+.content__1{
+    position: absolute;
+    background-color: rgb(247, 243, 243) ;
+    left: 20%;
+    top: 10%;
+    max-width: 400px;
+    max-height: 730px;
+    border: 0.5px solid white;
+}
+.content__1--img{
+    width: 100%;
+    height: auto;
+}
+.content__1--des{
+    padding: 10px;
+}
+
+.des__title{
+    font-size: 30px;
+    font-family: 'Kanit', sans-serif;
+}
+
+.des__subtitle{
+    font-size: 18px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+}
+
+
+.des__main{
+    font-size: 20px;
+    font-family: 'Kanit', sans-serif;
+    font-weight: 400;
+}
