@@ -19,26 +19,59 @@
 <body>
     <div class="main">
         <div class="left-menu">
-            <h1>
-                <div class="title">
-                    <i class="fa-solid fa-blog icon"></i>
-                    <p class="title__content">TYPERITE</p>
-                </div>
-            </h1>
-            <ul>
-                <li class="submenu"><a href="category.html">Lifestyle</a></li>
-                <li class="submenu"><a href="category.html">Health</a></li>
-                <li class="submenu"><a href="category.html">Family</a></li>
-                <li class="submenu"><a href="category.html">Management</a></li>
-                <li class="submenu"><a href="category.html">Travel</a></li>
-                <li class="submenu"><a href="category.html">Work</a></li>
+            <h1 class="menu">Menu</h1>
+            <!-- Contenedor -->
+            <ul id="accordion" class="accordion">
+                <li>
+                    <div class="link">Home</div>
+                </li>
+                <li class="default open">
+                    <div class="link"><i class="fa fa-code"></i>Categories<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li><a href="category.html">Lifestyle</a></li>
+                        <li><a href="category.html">Health</a></li>
+                        <li><a href="category.html">Family</a></li>
+                        <li><a href="category.html">Management</a></li>
+                        <li><a href="category.html">Travel</a></li>
+                        <li><a href="category.html">Work</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="link"><i class="fa fa-mobile"></i>Blog Posts<i class="fa fa-chevron-down"></i>
+                    </div>
+                    <ul class="submenu">
+                        <li><a href="single-video.html">Video Post</a></li>
+                        <li><a href="single-audio.html">Audio Post</a></li>
+                        <li><a href="single-gallery.html">Gallery Post</a></li>
+                        <li><a href="single-standard.html">Standard Post</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="link">Styles
+                    </div>
+                </li>
+                <li>
+                    <div class="link">About
+                    </div>
+                </li>
+                <li>
+                    <div class="link">Contact
+                    </div>
+                </li>
             </ul>
         </div>
         <div class="main-content">
             <div class="content__1">
-                <a href="#" >
-                    <img class="content__1--img" src="./asses/img/img1.jpg" alt="IMG1">
-                </a>
+                <div class="hover-gray">
+                    <figure>
+                        <a href="#">
+                            <img class="content__1--img" src="./asses/img/img1.jpg" alt="IMG1">
+                        </a>
+                    </figure>
+                </div>
+
+
                 <div class="content__1--des">
                     <div class="des__title">
                         Just a Standard Format Post.
@@ -55,9 +88,105 @@
                     </div>
                 </div>
             </div>
+            <div class="slogan">
+                <i class="fa-sharp fa-solid fa-quote-right icon__slogan"></i>
+                <p class="desp__slogan">
+                    Good design is making something intelligible and memorable. Great design is making something
+                    memorable and meaningful.
+                </p>
+                <p class="subdes__slogan">
+                    Dieter Rams
+                </p>
+            </div>
+            <div class="content__2">
+                <div class="hover-gray">
+                    <figure>
+                        <a href="#">
+                            <img class="content__1--img" src="./asses/img/img2.jpg" alt="IMG2">
+                        </a>
+                    </figure>
+                </div>
+
+
+                <div class="content__1--des">
+                    <div class="des__title">
+                        10 Interesting Facts About Caffeine.
+                    </div>
+                    <div class="des__subtitle">
+                        HEALTH APR 28, 2019
+                    </div>
+                    <div class="des__main">
+                        <p>
+                            Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit
+                            proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute
+                            incididunt velit sint in aliqua...
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content__3">
+                <div class="hover-gray">
+                    <figure>
+                        <a href="#">
+                            <img class="content__1--img" src="./asses/img/img3.jpg" alt="IMG3">
+                        </a>
+                    </figure>
+                </div>
+
+
+                <div class="content__1--des">
+                    <div class="des__title">
+                        Health Benefits Of Morning Dew.
+                    </div>
+                    <div class="des__subtitle">
+                        LIFESTYLEHEALTH APR 28, 2019
+                    </div>
+                    <div class="des__main">
+                        <p>
+                            Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit
+                            proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute
+                            incididunt velit sint in aliqua...
+                        </p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
+    <script src="./asses/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            var Accordion = function (el, multiple) {
+                this.el = el || {};
+                this.multiple = multiple || false;
 
+                // Variables privadas
+                var links = this.el.find('.link');
+                // Evento
+                links.on('click', {
+                    el: this.el,
+                    multiple: this.multiple
+                }, this.dropdown)
+            }
+
+            Accordion.prototype.dropdown = function (e) {
+                var $el = e.data.el;
+                $this = $(this),
+                    $next = $this.next();
+
+                $next.slideToggle();
+                $this.parent().toggleClass('open');
+
+                if (!e.data.multiple) {
+                    $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+                };
+            }
+
+            var accordion = new Accordion($('#accordion'), false);
+        });
+    </script>
 </body>
 
 </html>
