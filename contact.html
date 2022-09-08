@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/asses/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,300;1,200;1,400&display=swap"
+        rel="stylesheet">
+    <title>contact</title>
+</head>
+
+<body>
+
+    <div class="left-menu">
+        <h1 class="menu">Menu</h1>
+        <!-- Contenedor -->
+        <ul id="accordion" class="accordion">
+            <li>
+                <div class="link"><a href="/index.html">Home</a></div>
+            </li>
+            <li class="default open">
+                <div class="link"><i class="fa fa-code"></i>Categories<i class="fa fa-chevron-down"></i>
+                </div>
+                <ul class="submenu">
+                    <li><a href="category.html">Information Technology</a></li>
+                    <li><a href="category.html">Health</a></li>
+                    <li><a href="category.html">ELearning</a></li>
+                </ul>
+            </li>
+            <li>
+                <div class="link"><i class="fa fa-mobile"></i>Blog Posts
+                </div>
+            </li>
+            <li>
+                <div class="link"><a href="/about.html">About</a>
+                </div>
+            </li>
+            <li>
+                <div class="link"><a href="/contact.html">Contact</a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!-- ----------------------- CONTACT ------------------------------------ -->
+
+    <div class="contact">
+        <header class="contact_header">
+            <img class="contact__header--image" src="./asses/img/contact-2000.jpg" alt="CONTACT contact">
+
+            <p class="header__title">Get In Touch.</p>
+        </header>
+        <div class="contact__content">
+            <div>
+                <p class="content__first--p">
+                    Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor sunt sint sit
+                    nisi est eu exercitation incididunt adipisicing veniam velit id fugiat enim mollit amet anim veniam
+                    dolor dolor irure velit commodo cillum sit nulla ullamco magna amet magna cupidatat qui labore
+                    cillum sit in tempor veniam consequat non laborum adipisicing aliqua ea nisi sint.
+                </p>
+            </div>
+            <div class="content__contact--main">
+                <p style="margin-bottom: 50px;">
+                    Duis ex ad cupidatat tempor Excepteur cillum cupidatat fugiat nostrud cupidatat dolor sunt sint sit
+                    nisi est eu exercitation incididunt adipisicing veniam velit id fugiat enim mollit amet anim veniam
+                    dolor dolor irure velit commodo cillum sit nulla ullamco magna amet magna cupidatat qui labore
+                    cillum sit in tempor veniam consequat non laborum adipisicing aliqua ea nisi sint ut quis proident
+                    ullamco ut dolore culpa occaecat ut laboris in sit minim cupidatat ut dolor voluptate enim veniam
+                    consequat occaecat fugiat in adipisicing in amet Ut nulla nisi non ut enim aliqua laborum mollit
+                    quis nostrud sed sed.
+                </p>
+
+                <div class="row">
+                    <div class="col-6--1">
+                        <h3>Where to Find Us</h3>
+                        <p>1600 Amphitheatre Parkway <br>
+                            Mountain View, CA<br>
+                            94043 US</p>
+                    </div>
+                    <div class="col-6--2">
+                        <h3>Contact Info</h3>
+                        <p>sayhello@typerite.com<br>
+                            info@typerite.com<br>
+                            Phone: +197 543 2345</p>
+                    </div>
+                </div>
+
+                <h3>Contact With Me</h3>
+
+                <form action="" class="form-control">
+                        <input type="text" id="name" placeholder="Your Name">
+                        <input type="email" id="email" placeholder="Your Email">
+                        <input type="text" id="website" placeholder="Website">
+                        <textarea  id="messenger" cols="30" rows="5" placeholder="Your Messager"></textarea>
+                        <!-- <input type="text" id="messenger" placeholder="Your Messager"> -->
+
+                        <button class="submit send__mess">SEND MESSAGER</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <!-- <div class="footer__contact">
+        <p style="font-weight: 200; font-style: italic;">© Copyright @2020 Design by Teky With Friend</p>
+    </div> -->
+
+
+    <!-- ----------------------- ENDcontact ------------------------------------ -->
+
+    <script src="./asses/js/script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function () {
+            var Accordion = function (el, multiple) {
+                this.el = el || {};
+                this.multiple = multiple || false;
+
+                // Variables privadas
+                var links = this.el.find('.link');
+                // Evento
+                links.on('click', {
+                    el: this.el,
+                    multiple: this.multiple
+                }, this.dropdown)
+            }
+
+            Accordion.prototype.dropdown = function (e) {
+                var $el = e.data.el;
+                $this = $(this),
+                    $next = $this.next();
+
+                $next.slideToggle();
+                $this.parent().toggleClass('open');
+
+                if (!e.data.multiple) {
+                    $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
+                };
+            }
+
+            var accordion = new Accordion($('#accordion'), false);
+        });
+    </script>
+</body>
+
+</html>
