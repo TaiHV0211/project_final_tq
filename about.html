@@ -29,7 +29,7 @@
                 <div class="link"><i class="fa fa-code"></i>Categories<i class="fa fa-chevron-down"></i>
                 </div>
                 <ul class="submenu">
-                    <li><a href="category.html">Information Technology</a></li>
+                    <li><a href="./single-post.html">Information Technology</a></li>
                     <li><a href="category.html">Health</a></li>
                     <li><a href="category.html">ELearning</a></li>
                 </ul>
@@ -39,7 +39,7 @@
                 </div>
             </li>
             <li>
-                <div class="link"><a href="./about.html">About</a>
+                <div class="link"><a href="#about">About</a>
                 </div>
             </li>
             <li>
@@ -50,7 +50,7 @@
     </div>
     <!-- ----------------------- ABOUT ------------------------------------ -->
 
-    <div class="about">
+    <div  id="about"  class="about">
         <header class="about_header">
             <img class="about__header--image" src="./asses/img/about-2000.jpg" alt="HEADER ABOUT">
 
@@ -125,9 +125,16 @@
             </div>
         </div>
     </div>
-    <div class="footer__about">
-        <p style="font-weight: 200; font-style: italic;">© Copyright @2020 Design by Teky With Friend</p>
-    </div>
+    <footer class="footer">
+        <div id="button"></div>
+        <div id="container">
+            <div id="cont">
+                <div class="footer_center">
+                    <h3>© Copyright @2020 Design by Teky With Friend</h3>
+                </div>
+            </div>
+        </div>
+    </footer>
 
 
     <!-- ----------------------- ENDABOUT ------------------------------------ -->
@@ -135,37 +142,8 @@
     <script src="./asses/js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function () {
-            var Accordion = function (el, multiple) {
-                this.el = el || {};
-                this.multiple = multiple || false;
+    <script src="./asses/js/script.js"></script>
 
-                // Variables privadas
-                var links = this.el.find('.link');
-                // Evento
-                links.on('click', {
-                    el: this.el,
-                    multiple: this.multiple
-                }, this.dropdown)
-            }
-
-            Accordion.prototype.dropdown = function (e) {
-                var $el = e.data.el;
-                $this = $(this),
-                    $next = $this.next();
-
-                $next.slideToggle();
-                $this.parent().toggleClass('open');
-
-                if (!e.data.multiple) {
-                    $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-                };
-            }
-
-            var accordion = new Accordion($('#accordion'), false);
-        });
-    </script>
 </body>
 
 </html>

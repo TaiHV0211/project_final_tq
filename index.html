@@ -6,9 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/asses/css/style.css">
+    <link rel="stylesheet" href="./asses/css/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
         integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="./asses/fontawesome-free-6.2.0-web/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,200;0,300;1,200;1,400&display=swap"
@@ -24,13 +26,13 @@
             <!-- Contenedor -->
             <ul id="accordion" class="accordion">
                 <li>
-                    <div class="link"><a href="./index.html">Home</a></div>
+                    <div class="link"><a href="#index">Home</a></div>
                 </li>
                 <li class="default open">
                     <div class="link"><i class="fa fa-code"></i>Categories<i class="fa fa-chevron-down"></i>
                     </div>
                     <ul class="submenu">
-                        <li><a href="category.html">Information Technology</a></li>
+                        <li><a href="single-post.html">Information Technology</a></li>
                         <li><a href="category.html">Health</a></li>
                         <li><a href="category.html">ELearning</a></li>
                     </ul>
@@ -50,7 +52,8 @@
             </ul>
         </div>
         <div class="main-content">
-            <div class="content__1">
+
+            <div id="#index" class="content__1">
                 <div class="content__main--box">
                     <div class="hover-gray">
                         <figure>
@@ -144,47 +147,31 @@
                 </div>
             </div>
         </div>
-        <div class="footer__home">
-            <p class="p_home" style="font-weight: 200; font-style: italic;">© Copyright @2020 Design by Teky With Friend</p>
-        </div>
-    
+
+        <footer class="footer">
+            <div id="button"></div>
+            <div id="container">
+                <div id="cont">
+                    <div class="footer_center">
+                        <h3>© Copyright @2020 Design by Teky With Friend</h3>
+                        <div class="icon__top" style="font-size: 20px; color: black; ">
+                            <a href="#top">
+                                <i class="fa-solid fa-up-long"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
     </div>
     <!-- -----------------------END HOME ------------------------------------ -->
-    
+
     <script src="./asses/js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function () {
-            var Accordion = function (el, multiple) {
-                this.el = el || {};
-                this.multiple = multiple || false;
+    <script src="./asses/js/script.js"></script>
 
-                // Variables privadas
-                var links = this.el.find('.link');
-                // Evento
-                links.on('click', {
-                    el: this.el,
-                    multiple: this.multiple
-                }, this.dropdown)
-            }
-
-            Accordion.prototype.dropdown = function (e) {
-                var $el = e.data.el;
-                $this = $(this),
-                    $next = $this.next();
-
-                $next.slideToggle();
-                $this.parent().toggleClass('open');
-
-                if (!e.data.multiple) {
-                    $el.find('.submenu').not($next).slideUp().parent().removeClass('open');
-                };
-            }
-
-            var accordion = new Accordion($('#accordion'), false);
-        });
-    </script>
 </body>
 
 </html>
